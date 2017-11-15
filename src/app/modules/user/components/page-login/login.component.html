@@ -1,0 +1,12 @@
+<div *ngIf="!userFactory.user">
+    <form>
+        <input type="email" placeholder="Email address" [(ngModel)]="email" name="email">
+        <input type="password" placeholder="Password" [(ngModel)]="password" name="password">
+        <button type="submit" class="btn btn-light" (click)="loginWithEmail()">Login with Email</button>
+    </form>
+    <button class="btn btn-primary" (click)="loginWithFb()">Login with FB</button>
+</div>
+<div *ngIf="userFactory.user">
+    <p>{{userFactory.user.displayName || userFactory.user.email}}</p>
+    <button class="btn btn-info" (click)="logout()">Logout</button>
+</div>
